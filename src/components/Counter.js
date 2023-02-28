@@ -1,5 +1,6 @@
 import { useSelector,useDispatch } from 'react-redux';
 
+import { counterActions } from '../store/Index';
 import classes from './Counter.module.css';
 
 const Counter = () => {
@@ -8,27 +9,32 @@ const Counter = () => {
   const show = useSelector(state =>state.showCounter);
 
   const increamentHandler = ()=>{
-    dispatch({type:'increment'});
+    // dispatch({type:'increment'});
+    dispatch(counterActions.increment());
+
   }
 
   const decrementHandler = ()=>{
-    dispatch({type:'decerement'});
+    // dispatch({type:'decerement'});
+    dispatch(counterActions.decrement());
   }
 
-  const incrementBy5Handler = ()=>{
-    dispatch({type:'INCREMENTBY5', amount:5});
-  }
+  // const incrementBy5Handler = ()=>{
+  //   dispatch({type:'INCREMENTBY5', amount:5});
+  // }
 
-  const decrementBy5Handler = ()=>{
-    dispatch({type:'DECREMENTBY5'});
-  }
+  // const decrementBy5Handler = ()=>{
+  //   dispatch({type:'DECREMENTBY5'});
+  // }
 
   const increaseHandler = () =>{
-    dispatch({type:'increase', amount:10});
+    // dispatch({type:'increase', amount:10});
+    dispatch(counterActions.increase(10));
   }
 
   const toggleCounterHandler = () => {
-    dispatch({type:'toggle'});
+    // dispatch({type:'toggle'});
+    dispatch(counterActions.toggleCounter());
   };
 
   return (
@@ -39,8 +45,8 @@ const Counter = () => {
         <button onClick={increamentHandler}>Increament</button>
         <button onClick={decrementHandler}>Decrement</button>
         <button onClick={increaseHandler}>increment by 10</button>
-        <button onClick={incrementBy5Handler}>IncrementBy5</button>
-        <button onClick={decrementBy5Handler}>DecremenentBy5</button>
+        {/* <button onClick={incrementBy5Handler}>IncrementBy5</button> */}
+        {/* <button onClick={decrementBy5Handler}>DecremenentBy5</button> */}
       </div>
       <button onClick={toggleCounterHandler}>Toggle Counter</button>
     </main>
